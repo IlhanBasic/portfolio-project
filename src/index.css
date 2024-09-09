@@ -1,0 +1,739 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.1;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: white;
+}
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.header {
+  background-image: url("./assets/banner.jpg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 80vh;
+  padding-top: 150px;
+}
+.header.light {
+  background-color: white;
+  background-image: url("./assets/banner-light.jpg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero-title {
+  animation: header-left 0.6s ease-in forwards;
+}
+
+.hero-title h1 {
+  font-size: 4em;
+}
+
+.hero-title p {
+  font-size: 2em;
+}
+
+.hero-title button {
+  width: 15vw;
+  padding: 1em;
+  margin-top: 2em;
+  font-size: 1.3rem;
+  background-color: aqua;
+  color: black;
+  border-radius: 20px;
+  transition: all 0.6s ease-out;
+}
+
+.hero-title button:hover {
+  background-color: chartreuse;
+  color: white;
+  cursor: pointer;
+}
+
+.hero-img {
+  max-width: 24em;
+  max-height: 24em;
+  animation: header-right 0.6s ease-in forwards;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 20px;
+  margin: 0 auto;
+  height: 10vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: #4e9c37;
+}
+.navigation-list {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.navigation-list a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 1em;
+  transition: all 0.3s ease;
+}
+
+.navigation-list a:hover,
+.navigation-list.light a:hover {
+  color: white;
+  text-decoration: none;
+  border-bottom: 3px solid chartreuse;
+  border-radius: 5px;
+  font-size: 1.1em;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.navigation-list.light a:hover {
+  border-bottom: 3px solid black;
+}
+
+.hero-img.light {
+  animation: switch-light 0.6s ease-in forwards;
+}
+.navigation-list.light a {
+  color: black;
+  cursor: pointer;
+}
+
+.navbar.light {
+  background-color: aqua;
+}
+
+.hero-title.light {
+  animation: switch-light 0.6s ease-in forwards;
+}
+.scroll-button {
+  background-color: #9acd32;
+  position: fixed;
+  bottom: 3rem;
+  right: 2rem;
+  border-radius: 50%;
+  width: 3.2rem;
+  height: 3rem;
+  padding-top:10px; 
+}
+.scroll-button.light {
+  background-color: aqua;
+}
+
+.about-title {
+  font-size: 4rem;
+  text-align: center;
+}
+
+.about-title span {
+  font-weight: bolder;
+  border-bottom: 3px solid chartreuse;
+  animation: header-left 0.7s ease-in forwards;
+}
+.about-section {
+  background-color: #242424;
+  padding-top: 4em;
+  margin: auto;
+}
+.my-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: start;
+  width: 80%;
+  padding: 1em;
+  margin: auto;
+  animation: header-left 0.6s ease-in forwards;
+}
+.my-info h2 {
+  font-size: 2.2em;
+}
+.my-info p {
+  font-size: 1.5em;
+  width: 90%;
+}
+
+.about-section.light {
+  background-color: white;
+}
+
+.skill-ticker {
+  display: flex;
+  flex-wrap: nowrap; 
+  justify-content: space-between; 
+  gap: 20px; 
+  padding: 10px;
+  animation: header-left 0.6s ease-in forwards;
+}
+
+.skill-ticker img {
+  width: 100px;
+  height: 100px; 
+  object-fit: contain;
+}
+.projects-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 4em 0;
+  background-color: #242424;
+  text-align: center;
+}
+
+.projects-section h1,
+.user-inputs h1 {
+  width: 100%;
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+}
+.projects-section span,
+.user-inputs h1 span {
+  border-bottom: 3px solid chartreuse;
+}
+
+.project-card {
+  flex: 0 1 calc(33.333% - 2rem);
+  background-color: #4e9c37;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  cursor:default;
+  transition: all 0.4s ease;
+}
+
+.project-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  animation: card-anime 0.3s ease forwards;
+  background-color: rgb(73, 211, 27);
+}
+
+.project-card h2 {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.project-card p {
+  font-size: 1.2rem;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.project-card button,
+.user-inputs.light button {
+  background-color: #1abc9c;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+.project-card button:hover,
+.user-inputs.light button:hover {
+  background-color: #25a188;
+  cursor: pointer;
+}
+
+.project-card a {
+  text-decoration: none;
+  color: white;
+}
+
+.projects-section.light {
+  background-color: white;
+}
+
+.projects-section.light h1,
+.project-card.light h2,
+.project-card.light p {
+  color: black;
+}
+.project-card.light {
+  background-color: aqua;
+}
+.project-card.light:hover {
+  background-color: aquamarine;
+}
+
+.user-inputs {
+  background-color: #242424;
+  margin-top: -3rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.projects-section span,
+.user-inputs h1 span {
+  border-bottom: 3px solid chartreuse;
+}
+
+.projects-section h1,
+.user-inputs h1 {
+  width: 100%;
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+}
+
+.user-inputs form {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-inputs .form-control {
+  color: white;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.user-inputs .form-control label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: chartreuse;
+}
+
+.user-inputs .form-control input,
+.user-inputs .form-control textarea {
+  width: 100%;
+  padding: 1rem;
+  background-color: #333;
+  border: 2px solid #555;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: white;
+}
+
+.user-inputs .form-control input:focus,
+.user-inputs .form-control textarea:focus {
+  border-color: chartreuse;
+  outline: none;
+}
+.user-inputs.light .form-control input:focus,
+.user-inputs.light .form-control textarea:focus {
+  border-color: aqua;
+  outline: none;
+}
+
+.user-inputs textarea {
+  min-height: 120px;
+  resize: vertical;
+  max-height: 400px;
+}
+
+.user-inputs button {
+  padding: 0.8rem 2rem;
+  background-color: chartreuse;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.user-inputs button:hover {
+  background-color: #9acd32;
+}
+
+.user-inputs.light h1 {
+  color: black;
+}
+.user-inputs.light {
+  background-color: white;
+}
+.user-inputs.light .form-control input,
+.user-inputs.light .form-control textarea {
+  background-color: #fff;
+  border: 2px solid #ddd;
+  color: #333;
+}
+.user-inputs.light .form-control label {
+  color: black;
+}
+
+
+.light {
+  animation: switch-light 0.4s ease-in forwards;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa; 
+  padding: 1rem 2rem;
+  border-top: 1px solid #dee2e6; 
+  color: #343a40;
+}
+
+footer div {
+  margin: 0.5rem 0;
+}
+
+footer p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.socials img {
+  width: 25px;
+  height: 25px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.socials img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.error-box {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  padding: 15px;
+  border-radius: 15px;
+  margin: 20px 0;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+.error-box p,
+.success-box p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.success-box {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 20px;
+  padding: 15px;
+  margin: 20px 0;
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+}
+.success-modal{
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+/* Animacije */
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes card-anime {
+  0% {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes about-title {
+  0% {
+    opacity: 0;
+    transform: translateX(-200px);
+    scale: 2;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    border-bottom: 3px solid chartreuse;
+    scale: 1;
+  }
+}
+@keyframes header-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-300px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes header-right {
+  0% {
+    opacity: 0;
+    transform: translateX(300px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes nav-li {
+  0% {
+    opacity: 0;
+    transform: translateY(300px);
+    scale: 2;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    scale: 1;
+  }
+}
+
+@keyframes switch-light {
+  0% {
+    opacity: 0;
+    color: white;
+  }
+  100% {
+    opacity: 1;
+    color: black;
+  }
+}
+/* Responzivnost - od 992px naviše */
+@media screen and (min-width: 992px) {
+  .navbar {
+    justify-content: space-evenly;
+  }
+  .navigation-list {
+    gap: 20px;
+  }
+  .my-info h2 {
+    font-size: 3em;
+  }
+}
+
+/* Responzivnost - 992px i manje */
+@media screen and (max-width: 992px) {
+  .my-info span {
+    font-size: 1.8em;
+  }
+  .my-info p {
+    font-size: 1.2em;
+    width: 90%;
+  }
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    height: 27vh;
+  }
+  .navigation-list {
+    margin-right: 50px;
+  }
+
+  .navigation-list {
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .navigation-list a {
+    font-size: 1rem;
+  }
+
+  .hero-title p {
+    font-size: 1.3rem;
+  }
+
+  .hero-title h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-img,
+  .hero-img.light {
+    max-width: 18em;
+    max-height: 18em;
+  }
+
+  .hero-title button {
+    font-size: 0.8em;
+  }
+
+  .project-card {
+    flex: 0 1 calc(50% - 2rem);
+  }
+  .header {
+    justify-content: center;
+  }
+}
+
+/* Responzivnost - 768px i manje */
+@media (max-width: 768px) {
+  .user-inputs h1,
+  .projects-section h1 {
+    font-size: 3rem;
+  }
+  .my-info p {
+    font-size: 1.3rem;
+    width: 100%;
+  }
+
+  .user-inputs form {
+    width: 90%;
+  }
+
+  .user-inputs .form-control {
+    font-size: 1rem;
+  }
+
+  .user-inputs button {
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* Responzivnost - 600px i manje */
+@media screen and (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    height: 50vh;
+  }
+  .hero-title button {
+    width: 10em;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  body {
+    padding-top: 30vh;
+  }
+
+  .my-info span {
+    font-size: 1.3em;
+  }
+
+  .navigation-list {
+    gap: 2px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .navigation-list a {
+    font-size: 0.9rem;
+  }
+
+  .header img {
+    display: none;
+  }
+
+  .about-title {
+    font-size: 3rem;
+  }
+}
+
+/* Responzivnost - 480px i manje */
+@media (max-width: 480px) {
+  .header {
+    background-image: url("./assets/phone-banner.jpg");
+    background-attachment: scroll;
+    background-size: cover;
+  }
+  .user-inputs h1,
+  .projects-section h1 {
+    font-size: 2.5rem;
+  }
+  .navigation-list {
+    padding: 0.9rem;
+  }
+  .skill-ticker img {
+    width: 3rem;
+  }
+  .project-card:hover {
+    background-color: #4e9c37;
+    animation: none;
+  }
+  .project-card.light:hover {
+    animation: none;
+    background-color: aqua !important;
+  }
+
+  .user-inputs form {
+    width: 100%;
+  }
+
+  .user-inputs button {
+    padding: 0.6rem 1rem;
+    font-size: 1.3rem;
+  }
+  .user-inputs {
+    padding-left: 1rem;
+    padding-right: 3rem;
+  }
+}
+
+/* Responzivnost - 400px i manje */
+@media screen and (max-width: 400px) {
+  .project-card {
+    flex: 0 1 calc(100% - 2rem);
+  }
+}
